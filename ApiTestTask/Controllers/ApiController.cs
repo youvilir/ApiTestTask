@@ -26,12 +26,12 @@ namespace ApiTestTask.Controllers
         }
 
 		/// <summary>
-		/// Создание задачи
+		/// РЎРѕР·РґР°РЅРёРµ Р·Р°РґР°С‡Рё
 		/// </summary>
 		/// <remarks>
-		/// Создание задачи
+		/// РЎРѕР·РґР°РЅРёРµ Р·Р°РґР°С‡Рё
 		/// </remarks>
-		/// <response code="202">ID новой задачи</response>
+		/// <response code="202">ID РЅРѕРІРѕР№ Р·Р°РґР°С‡Рё</response>
 		[ProducesResponseType((int)HttpStatusCode.Accepted)]
 		[HttpPost("/task")]
         public async Task<IActionResult> Create()
@@ -42,21 +42,21 @@ namespace ApiTestTask.Controllers
         }
 
 		/// <summary>
-		/// Получение статуса задачи
+		/// РџРѕР»СѓС‡РµРЅРёРµ СЃС‚Р°С‚СѓСЃР° Р·Р°РґР°С‡Рё
 		/// </summary>
 		/// <param name="id"></param>
 		/// <remarks>
-		/// Получение статуса задачи
+		/// РџРѕР»СѓС‡РµРЅРёРµ СЃС‚Р°С‚СѓСЃР° Р·Р°РґР°С‡Рё
 		/// </remarks>
-		/// <param name="id">ID задачи</param>
-		/// <response code="200">Статус задачи</response>
-		/// <response code="404">Задача не найдена</response>
+		/// <param name="id">ID Р·Р°РґР°С‡Рё</param>
+		/// <response code="200">РЎС‚Р°С‚СѓСЃ Р·Р°РґР°С‡Рё</response>
+		/// <response code="404">Р—Р°РґР°С‡Р° РЅРµ РЅР°Р№РґРµРЅР°</response>
 		[ProducesResponseType((int)HttpStatusCode.NotFound)]
 		[ProducesResponseType((int)HttpStatusCode.OK)]
 		[HttpGet("/task/{id}")]
 		public IActionResult Get(Guid id)
 		{
-			// "Возвращает 400, если передан не GUID" - зачем? можно в метод сразу передавать Guid - получим приведение типа на этапе маршрутизации
+			// "Р’РѕР·РІСЂР°С‰Р°РµС‚ 400, РµСЃР»Рё РїРµСЂРµРґР°РЅ РЅРµ GUID" - Р·Р°С‡РµРј? РјРѕР¶РЅРѕ РІ РјРµС‚РѕРґ СЃСЂР°Р·Сѓ РїРµСЂРµРґР°РІР°С‚СЊ Guid - РїРѕР»СѓС‡РёРј РїСЂРёРІРµРґРµРЅРёРµ С‚РёРїР° РЅР° СЌС‚Р°РїРµ РјР°СЂС€СЂСѓС‚РёР·Р°С†РёРё
 			var entity = _repository.ApiEntity.Get(id);
 
 			if (entity == null)
