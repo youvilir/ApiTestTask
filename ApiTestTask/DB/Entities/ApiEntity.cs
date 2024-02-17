@@ -1,6 +1,6 @@
-﻿using WebApiFile.Enums;
+﻿using ApiTestTask.Enums;
 
-namespace WebApiFile.DB.Entities
+namespace ApiTestTask.DB.Entities
 {
     public class ApiEntity : Entity
     {

@@ -1,12 +1,13 @@
-﻿using WebApiFile.DB.Entities;
-using WebApiFile.DB.Repositories;
-using WebApiFile.Enums;
+﻿using ApiTestTask.DB.Entities;
+using ApiTestTask.DB.Repositories;
+using ApiTestTask.Enums;
 
 namespace ApiTestTask.Services
 {
-	public class ApiEntitryService
+	public class ApiEntitryService : IApiEntitryService
 	{
 		private readonly IRepository _repository;
+		private const int _delay = 2 * 60 * 100; // TODO вынести в конфиг
 
 		public ApiEntitryService(IRepository repository)
 		{
@@ -20,16 +21,11 @@ namespace ApiTestTask.Services
 			await _repository.ApiEntity.AddAsync(apiEntity);
 			await _repository.SaveChangesAsync();
 
-			var outer = Task.Run(() =>
+			var outer = Task.Run(async () =>
 			{
-				var inner = Task.Run(() =>
-				{
-					_ = ChangeStatusAsync(apiEntity)
-						.ContinueWith(_ => Task.Delay(TimeSpan.FromSeconds(120))) // TODO вынести параметр в конфиг
-						.Unwrap()
-						.ContinueWith(_ => ChangeStatusAsync(apiEntity))
-						.Unwrap();
-				});
+				await ChangeStatusAsync(apiEntity);
+				await Task.Delay(_delay);
+				await ChangeStatusAsync(apiEntity);
 			});
 
 			return apiEntity.ID.Value;

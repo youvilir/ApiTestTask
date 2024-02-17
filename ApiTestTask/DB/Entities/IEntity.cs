@@ -1,4 +1,4 @@
-﻿namespace WebApiFile.DB.Entities
+﻿namespace ApiTestTask.DB.Entities
 {
     public interface IEntity
     {

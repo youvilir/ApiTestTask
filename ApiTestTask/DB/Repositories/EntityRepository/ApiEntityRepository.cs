@@ -1,7 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
-using ApiEntity = WebApiFile.DB.Entities.ApiEntity;
+﻿using ApiTestTask.DB.Entities;
 
-namespace WebApiFile.DB.Repositories.EntityRepository
+namespace ApiTestTask.DB.Repositories.EntityRepository
 {
     public class ApiEntityRepository : RepositoryBase<ApiEntity>
     {

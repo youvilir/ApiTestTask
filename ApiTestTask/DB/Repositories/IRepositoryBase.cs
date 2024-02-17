@@ -1,6 +1,6 @@
-﻿using WebApiFile.DB.Entities;
+﻿using ApiTestTask.DB.Entities;
 
-namespace WebApiFile.DB.Repositories
+namespace ApiTestTask.DB.Repositories
 {
 	public interface IRepositoryBase<T> where T : class, IEntity
 	{

@@ -1,10 +1,10 @@
 using ApiTestTask.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
-using WebApiFile.DB.Repositories;
-using WebApiFile.Enums;
+using ApiTestTask.DB.Repositories;
+using ApiTestTask.Enums;
 
-namespace WebApiFile.Controllers
+namespace ApiTestTask.Controllers
 {
 	[Produces("application/json")]
     [ApiController]
@@ -13,12 +13,12 @@ namespace WebApiFile.Controllers
 
         private readonly ILogger<ApiController> _logger;
         private readonly IRepository _repository;
-		private readonly ApiEntitryService _apiEntitryService;
+		private readonly IApiEntitryService _apiEntitryService;
 
 		public ApiController(
 			ILogger<ApiController> logger, 
-			IRepository repository, 
-			ApiEntitryService apiEntitryService)
+			IRepository repository,
+			IApiEntitryService apiEntitryService)
         {
             _logger = logger;
             _repository = repository;
@@ -61,7 +61,6 @@ namespace WebApiFile.Controllers
 
 			if (entity == null)
 				return NotFound();
-
 
 			return Ok(entity.Status);
 		}

@@ -2,7 +2,7 @@ using ApiTestTask.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
-using WebApiFile.DB.Repositories;
+using ApiTestTask.DB.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,7 +25,7 @@ string connection = builder.Configuration.GetConnectionString("Api");
 builder.Services.AddDbContext<DataContext>(opt => opt.UseNpgsql(connection), ServiceLifetime.Singleton);
 
 builder.Services.AddSingleton<IRepository, Repository>();
-builder.Services.AddSingleton<ApiEntitryService>();
+builder.Services.AddSingleton<IApiEntitryService, ApiEntitryService>();
 
 var app = builder.Build();
 

@@ -1,7 +1,7 @@
-﻿using WebApiFile.DB.Entities;
+﻿using ApiTestTask.DB.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace WebApiFile.DB.Repositories
+namespace ApiTestTask.DB.Repositories
 {
 	public class RepositoryBase<T> : IRepositoryBase<T> where T : class, IEntity
 	{

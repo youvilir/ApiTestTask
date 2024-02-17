@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
-using ApiEntity = WebApiFile.DB.Entities.ApiEntity;
+using ApiTestTask.DB.Entities;
 
-namespace WebApiFile.DB.Repositories
+namespace ApiTestTask.DB.Repositories
 {
     public class DataContext: DbContext
     {

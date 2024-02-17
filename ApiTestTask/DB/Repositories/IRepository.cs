@@ -1,6 +1,6 @@
-﻿using WebApiFile.DB.Repositories.EntityRepository;
+﻿using ApiTestTask.DB.Repositories.EntityRepository;
 
-namespace WebApiFile.DB.Repositories
+namespace ApiTestTask.DB.Repositories
 {
 	public interface IRepository: IDisposable
 	{

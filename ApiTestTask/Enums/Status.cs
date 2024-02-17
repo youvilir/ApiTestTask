@@ -1,4 +1,4 @@
-﻿namespace WebApiFile.Enums
+﻿namespace ApiTestTask.Enums
 {
     public enum Status
     {
